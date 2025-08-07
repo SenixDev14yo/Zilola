@@ -15,8 +15,6 @@
             --secondary-color: #e9f7ec;
             --text-color: #333;
             --white: #ffffff;
-            --dark-bg: #1e1e1e;
-            --dark-text: #f1f1f1;
         }
 
         * {
@@ -33,19 +31,12 @@
             flex-direction: column;
             min-height: 100vh;
             scroll-behavior: smooth;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        body.dark-mode {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
         }
 
         .header {
             background: var(--white);
             padding: 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
         }
 
         .logo {
@@ -61,10 +52,9 @@
             align-items: center;
             padding: 40px 20px;
             gap: 30px;
-            animation: fadeIn 1s ease-in;
         }
 
-        .certificate-container, .profile-section {
+        .certificate-container, .profile-section, .bottom-certificate {
             max-width: 800px;
             width: 100%;
             text-align: center;
@@ -76,6 +66,7 @@
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 0 auto;
         }
 
         .certificate-image {
@@ -137,37 +128,6 @@
             height: 40px;
         }
 
-        .top-btn, .dark-toggle, .lang-select {
-            position: fixed;
-            bottom: 20px;
-            background: var(--primary-color);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transition: background 0.3s;
-        }
-
-        .top-btn:hover,
-        .dark-toggle:hover {
-            background: #2f8d3f;
-        }
-
-        .top-btn {
-            right: 20px;
-        }
-
-        .dark-toggle {
-            right: 80px;
-        }
-
-        .lang-select {
-            right: 160px;
-            padding: 10px;
-        }
-
         .download-btn {
             margin-top: 15px;
             background: var(--primary-color);
@@ -183,11 +143,6 @@
             background: #2f8d3f;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         @media (max-width: 768px) {
             .photo-frame {
                 width: 150px;
@@ -195,9 +150,6 @@
             }
             .manager-name {
                 font-size: 1.2rem;
-            }
-            .lang-select {
-                right: 120px;
             }
         }
 
@@ -218,6 +170,7 @@
     </header>
 
     <main class="main">
+        <!-- Верхний сертификат -->
         <div class="certificate-container">
             <div class="certificate-frame">
                 <img src="certificate.png" alt="Certificate" class="certificate-image">
@@ -225,13 +178,21 @@
             <button class="download-btn" onclick="window.print()">📄 Скачать сертификат</button>
         </div>
 
+        <!-- Профиль -->
         <div class="profile-section">
             <div class="photo-frame">
-                <img src=".png" alt="Manager Zilola" class="manager-photo">
+                <img src="man.png" alt="Manager Zilola" class="manager-photo">
             </div>
             <div class="manager-info">
                 <h1 class="manager-name">Қурбанова Зилола</h1>
                 <p class="manager-position">Перед Менеджер, Хоразм</p>
+            </div>
+        </div>
+
+        <!-- Нижний сертификат -->
+        <div class="bottom-certificate">
+            <div class="certificate-frame">
+                <img src="certificate.png" alt="Certificate duplicate" class="certificate-image">
             </div>
         </div>
     </main>
@@ -241,4 +202,6 @@
             <img src="uzbekistan-flag-icon.png" alt="Flag of Uzbekistan" class="flag-image">
         </div>
         <p>© 2025 Greenleaf</p>
-   
+    </footer>
+</body>
+</html>
