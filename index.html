@@ -1,30 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Greenleaf Certificate</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greenleaf — Профиль Менеджера</title>
+    <meta name="description" content="Профиль и сертификат менеджера Зилола Қурбанова — Greenleaf Хоразм." />
+    <meta name="keywords" content="Greenleaf, сертификат, Хоразм, менеджер, Зилола Қурбанова" />
+    <meta name="author" content="Greenleaf" />
+    <link rel="icon" href="https://placehold.co/32x32" type="image/png" />
+
+    <style>
+        :root {
+            --primary-color: #3aaf4f;
+            --secondary-color: #e9f7ec;
+            --text-color: #333;
+            --white: #ffffff;
+            --dark-bg: #1e1e1e;
+            --dark-text: #f1f1f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .header {
+            background: var(--white);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .logo {
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 30px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .certificate-container, .profile-section {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .certificate-frame {
+            border: 15px solid var(--primary-color);
+            background: var(--white);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary-color);
+            margin: 0 auto;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .manager-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .manager-info {
+            background: var(--white);
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .manager-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .manager-position {
+            font-size: 1rem;
+        }
+
+        .footer {
+            background: var(--white);
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .flag-container {
+            display: inline-block;
+            border: 2px solid var(--primary-color);
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .flag-image {
+            height: 40px;
+        }
+
+        .top-btn, .dark-toggle, .lang-select {
+            position: fixed;
+            bottom: 20px;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .top-btn:hover,
+        .dark-toggle:hover {
+            background: #2f8d3f;
+        }
+
+        .top-btn {
+            right: 20px;
+        }
+
+        .dark-toggle {
+            right: 80px;
+        }
+
+        .lang-select {
+            right: 160px;
+            padding: 10px;
+        }
+
+        .download-btn {
+            margin-top: 15px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #2f8d3f;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .photo-frame {
+                width: 150px;
+                height: 150px;
+            }
+            .manager-name {
+                font-size: 1.2rem;
+            }
+            .lang-select {
+                right: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-frame {
+                width: 120px;
+                height: 120px;
+            }
+            .manager-name {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="greenleaf-logo.png" alt="Greenleaf logo" class="logo" />
-  </header>
+    <header class="header">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/aab8d2b6-a093-4a9e-bc03-0dabe2567b3c.png" alt="Greenleaf logo" class="logo">
+    </header>
 
-  <main>
-    <section class="certificate">
-      <img src="certificate.png" alt="Сертификат" />
-    </section>
-    <section class="profile">
-      <div class="profile-photo">
-        <img src="man.png" alt="Manager photo" />
-      </div>
-      <p class="profile-text">Certified Manager</p>
-    </section>
-  </main>
+    <main class="main">
+        <div class="certificate-container">
+            <div class="certificate-frame">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/96bddb46-e0f8-4895-a7e1-537125fcb296.png" alt="Certificate" class="certificate-image">
+            </div>
+            <button class="download-btn" onclick="window.print()">📄 Скачать сертификат</button>
+        </div>
 
-  <footer>
-    <img src="uzbekistan-flag-icon.png" alt="Uzbekistan Flag" class="flag" />
-  </footer>
-</body>
-</html>
+        <div class="profile-section">
+            <div class="photo-frame">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4a6394ae-2b7b-4f3d-94c6-99587b44a783.png" alt="Manager Zilola" class="manager-photo">
+            </div>
+            <div class="manager-info">
+                <h1 class="manager-name">Қурбанова Зилола</h1>
+                <p class="manager-position">Перед Менеджер, Хоразм</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="flag-container">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a334fdda-aed1-47f6-b0ef-943d3918e702.png" alt="Flag of Uzbekistan" class="flag-image">
+        </div>
+        <p>© 2025 Greenleaf</p>
+   
